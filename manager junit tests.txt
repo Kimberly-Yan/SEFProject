@@ -1,0 +1,111 @@
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ManagerTest {
+	Manager program;
+
+@Before
+	public void setUp() {
+		program = new Manager();
+	}
+
+@Test
+public void managerloginTest() {
+	program.addManagerName("Test Manager");
+	program.addManagerPass("Test Password");
+	}
+
+@Test
+public void addsupplierTest() {
+//the first variable is the supplier ID, second is name, third is address, fourth is manager comment
+	program.addNewSupplier(43210, "Test Carrots Inc", "111 Imaginary Lane, Imagination Land, VIC, 3000", "Supplier for test carrots");
+	program.addNewSupplier(50594, "Test Apple Megacorp", "1/1 Test St, Testville, NSW, 2000", "Premier test apple supplier");
+	}
+
+@Test
+public void modifysupplierTest() {
+//first variable is to put in the supplier ID, after that is menu options for which part of the supplier to change.  1 is name, 2 is address, 3 is manager comment
+
+	program.addModifySupplierID(43210);
+	program.addModifySupplierMenu(1);
+	program.addModifySupplierName("Better Test Carrots");
+	
+	program.addModifySupplierID(43210);
+	program.addModifySupplierMenu(2);
+	program.addModifySupplierAddress("55 Dream Ave, Dream Cove, QLD, 4000");
+
+	program.addModifySupplierID(50594);
+	program.addModifySupplierMenu(1);
+	program.addModifySupplierComment("There are better test apples out there");
+	}
+
+@Test
+public void additemTest() {
+//the first variable is the product ID, second is price, third is name, fourth is description, fifth is supplier ID
+	program.addNewItem(01234, 34.20, "test carrot", "a carrot for testing", 43210);
+	program.addNewItem(3084, 0.02, "test apple", "an apple for testing", 50594);
+	}
+
+@Test
+public void modifyitemTest() {
+//first variable is to put in the product ID, after that is menu options for which part of the product to change.  1 is price, 2 is name, 3 is description, 4 is supplier ID
+
+	program.addModifyItemID(01234);
+	program.addModifyItemMenu(1);
+	program.addModifyItemPrice(5.40);
+
+	program.addModifyItemID(01234);
+	program.addModifyItemMenu(2);
+	program.addModifyItemName("test onion");
+
+	program.addModifyItemID(3084);
+	program.addModifyItemMenu(3);
+	program.addModifyItemDescription("better testing apples");
+
+	program.addModifyItemID(3084);
+	program.addModifyItemMenu(3);
+	program.addModifyItemSupplier("01234");
+}
+
+
+	program.addUnitPrice(01234 //int for product ID
+			     , 34.20 //double for product price);
+	program.addStockLevel(01235 //int for product ID
+			    , 450 //int for stock level);
+	program.addReplenishLevel(01234 //int for product ID
+			    , 30 //int for replenish level);
+	program.addReorderQuantity(12345 //int for product ID
+			     , 40 //int for reorder quantity
+unit-price, stock level, replenish-level and reorder quantity for all items.  CHECK THE REQUIREMENTS FOR THIS
+
+@Test
+public void bulksalesTest()
+
+@Test
+public void replenishlevelsTest()
+
+@Test
+public void placepurchaseordersTest()
+
+@Test
+public void salesreportTest()
+
+@Test
+public void supplyreportTest()
+
+@Test
+public void highrevenueitemsTest()
+
+
+
+
+
+
+ModifyItem
+PlacePurchaseOrders
+SalesReport
+SupplyReport
+HighRevenueItems
+ManagerLogin
