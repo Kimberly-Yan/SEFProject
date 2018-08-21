@@ -43,14 +43,14 @@ public void modifysupplierTest() {
 
 @Test
 public void additemTest() {
-//the first variable is the product ID, second is price, third is name, fourth is description, fifth is supplier ID
-	program.addNewItem(01234, 34.20, "test carrot", "a carrot for testing", 43210);
-	program.addNewItem(3084, 0.02, "test apple", "an apple for testing", 50594);
+//the first variable is the product ID, second is price, third is name, fourth is quantity in stock, fifth is description, sixth is supplier ID
+	program.addNewItem(01234, 34.20, "test carrot", 35, "a carrot for testing", 43210);
+	program.addNewItem(3084, 0.02, "test apple", 2, "an apple for testing", 50594);
 	}
 
 @Test
 public void modifyitemTest() {
-//first variable is to put in the product ID, after that is menu options for which part of the product to change.  1 is price, 2 is name, 3 is description, 4 is supplier ID
+//first variable is to put in the product ID, after that is menu options for which part of the product to change.  1 is price, 2 is add stock, 3 is change stock (missing stock), 4 is name, 5 is description, 6 is supplier ID
 
 	program.addModifyItemID(01234);
 	program.addModifyItemMenu(1);
@@ -58,54 +58,56 @@ public void modifyitemTest() {
 
 	program.addModifyItemID(01234);
 	program.addModifyItemMenu(2);
+	program.addModifyItemAddStock(40);
+
+	program.addModifyItemID(01234);
+	program.addModifyItemMenu(3);
+	program.addModifyItemChangeStock(2);
+
+	program.addModifyItemID(01234);
+	program.addModifyItemMenu(4);
 	program.addModifyItemName("test onion");
 
 	program.addModifyItemID(3084);
-	program.addModifyItemMenu(3);
+	program.addModifyItemMenu(5);
 	program.addModifyItemDescription("better testing apples");
 
 	program.addModifyItemID(3084);
-	program.addModifyItemMenu(3);
+	program.addModifyItemMenu(6);
 	program.addModifyItemSupplier("01234");
 }
 
-
-	program.addUnitPrice(01234 //int for product ID
-			     , 34.20 //double for product price);
-	program.addStockLevel(01235 //int for product ID
-			    , 450 //int for stock level);
-	program.addReplenishLevel(01234 //int for product ID
-			    , 30 //int for replenish level);
-	program.addReorderQuantity(12345 //int for product ID
-			     , 40 //int for reorder quantity
-unit-price, stock level, replenish-level and reorder quantity for all items.  CHECK THE REQUIREMENTS FOR THIS
+@Test
+public void replenishlevelsTest() {
+//first is product ID, second is minimum level amount, third is how much to order
+	program.addReplenishLevel(3084, 10, 40);
+	}
 
 @Test
-public void bulksalesTest()
+public void bulksalesTest() {
+//first is product ID, second is minimum amount to qualify for bulk sales, third is discount %
+	program.addBulkSales(01234, 20, 20);
 
 @Test
-public void replenishlevelsTest()
+public void placepurchaseordersTest() {
+//first is supplier ID, second is product ID, third is quantity
+	program.addPlacePurchaseOrder(01234, 3084, 55);
+}
 
 @Test
-public void placepurchaseordersTest()
+public void salesreportTest() {
+//first is beginning date, second is ending date.  Dependant on how we implement date system
+	program.addSalesReport(22/04/2018, 26/07/2018);
+}
 
 @Test
-public void salesreportTest()
+public void supplyreportTest() {
+//first is beginning date, second is ending date.  Dependant on how we implement date system
+	program.addSupplyReport(18/03/2018, 4/06/2018);
+}
 
 @Test
-public void supplyreportTest()
-
-@Test
-public void highrevenueitemsTest()
-
-
-
-
-
-
-ModifyItem
-PlacePurchaseOrders
-SalesReport
-SupplyReport
-HighRevenueItems
-ManagerLogin
+public void highrevenueitemsTest() {
+//first is beginning date, second is ending date.  Dependant on how we implement date system
+	program.addHighRevenueItems(15/05/2018, 27/06.2018);
+}
